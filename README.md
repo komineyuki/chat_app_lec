@@ -1,16 +1,12 @@
 # chat_app
 
-A new Flutter project.
+Firebaseを用いてチャットアプリを作ろう
 
-## Getting Started
+## 最終目標
 
-This project is a starting point for a Flutter application.
+Firebase AuthとCloud Firestoreを用いてデータベースにアクセスしたグローバルチャットアプリを作成する。
 
-A few resources to get you started if this is your first Flutter project:
+![img](https://user-images.githubusercontent.com/92580123/178930135-beba41b5-1133-4a8e-a7b6-507faced6adf.png)
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+![img](https://user-images.githubusercontent.com/92580123/178929752-0ca07c7e-372b-4c72-836f-aa78f0d2f584.png)
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
