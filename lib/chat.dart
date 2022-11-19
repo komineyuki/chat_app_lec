@@ -1,4 +1,3 @@
-import 'package:bubble/bubble.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
@@ -36,13 +35,13 @@ class _Chat extends State<Chat> {
                         return const Center(child: CircularProgressIndicator());
                       }
 
-                      if (snapshot.data!.data() != null) {
+                      if (snapshot.data != null) {
                         var data =
                             snapshot.data!.data() as Map<String, dynamic>;
                         print(data["messages"].length);
                         return Column(children: [
                           for (var i in data["messages"])
-                            customBubble(
+                            comment(
                                 text: i["text"], uid: i["uid"], date: i["date"])
                         ]);
                       }
@@ -55,9 +54,8 @@ class _Chat extends State<Chat> {
               height: 100,
               child:
                   Row(mainAxisAlignment: MainAxisAlignment.center, children: [
-                SizedBox(
-                    width: 300,
-                    child: TextField(controller: editingController)),
+                SizedBox(width: 20),
+                Expanded(child: TextField(controller: editingController)),
                 IconButton(
                     onPressed: () => sendMessage(editingController.text),
                     icon: const Icon(Icons.send))
@@ -77,17 +75,21 @@ class _Chat extends State<Chat> {
     editingController.text = "";
   }
 
-  Widget customBubble(
+  Widget comment(
       {required String text, required String uid, required Timestamp date}) {
-    bool me = uid == FirebaseAuth.instance.currentUser!.uid;
-
     return SizedBox(
         width: MediaQuery.of(context).size.width * 0.9,
-        child: Bubble(
-          color: me ? Colors.green : Colors.white,
-          margin: const BubbleEdges.only(top: 10),
-          nip: me ? BubbleNip.rightBottom : BubbleNip.leftBottom,
-          child: Text(text, textAlign: me ? TextAlign.end : TextAlign.start),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            Text("$uid ${date.toDate().toString()}",
+                textAlign: TextAlign.start),
+            Text(text,
+                textAlign: TextAlign.start,
+                style: const TextStyle(fontSize: 30)),
+            const SizedBox(height: 15)
+          ],
         ));
   }
 }
