@@ -61,7 +61,7 @@ class _Login extends State<Login> {
     required String title,
   }) {
     return SizedBox(
-        width: 300,
+        width: MediaQuery.of(context).size.width * 0.8,
         child: TextField(
           controller: textEditingController,
           decoration: InputDecoration(hintText: title),
@@ -102,6 +102,9 @@ class _Login extends State<Login> {
             },
           ),
         );
+      }else{
+        // ログインに失敗しているとこれが表示される
+        print("ログインに失敗");
       }
     } on FirebaseAuthException catch (_) {
       setState(() {

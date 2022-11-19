@@ -8,5 +8,5 @@ Firebase AuthとCloud Firestoreを用いてデータベースにアクセスし�
 
 ![img](https://user-images.githubusercontent.com/92580123/178930135-beba41b5-1133-4a8e-a7b6-507faced6adf.png)
 
-![img](https://user-images.githubusercontent.com/92580123/178929752-0ca07c7e-372b-4c72-836f-aa78f0d2f584.png)
+![img](https://user-images.githubusercontent.com/92580123/202859003-a8f790af-e226-489c-a23a-436d6bbfab8c.png)
 
