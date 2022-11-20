@@ -16,7 +16,16 @@ class _Chat extends State<Chat> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: AppBar(),
+        appBar: AppBar(
+          actions: [
+            IconButton(
+                onPressed: () {
+                  FirebaseAuth.instance.signOut();
+                  Navigator.pop(context);
+                },
+                icon: Icon(Icons.logout))
+          ],
+        ),
         body: Column(children: [
           Expanded(
             child: Scrollbar(
